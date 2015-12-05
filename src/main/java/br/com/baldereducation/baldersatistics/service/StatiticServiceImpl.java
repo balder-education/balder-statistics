@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.baldereducation.baldersatistics.model.domain.GenderType;
 import br.com.baldereducation.baldersatistics.model.domain.Progression;
 import br.com.baldereducation.baldersatistics.model.domain.Student;
+import br.com.baldereducation.baldersatistics.model.domain.to.StatisticTO;
 import br.com.baldereducation.baldersatistics.model.repository.ProgressionRepository;
 import br.com.baldereducation.baldersatistics.model.repository.StudentRepository;
 
@@ -79,5 +80,10 @@ public class StatiticServiceImpl implements StatiticService {
 	private List<Student> getAllStudents() {
 		List<Student> students = studentRepository.findAll();
 		return students;
+	}
+
+	@Override
+	public StatisticTO getProgression() {
+		return new StatisticTO();
 	}
 }
