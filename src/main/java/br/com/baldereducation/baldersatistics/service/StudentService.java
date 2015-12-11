@@ -60,4 +60,6 @@ public interface StudentService {
      *             if no todo entry is found.
      */
     StundentDTO update(StundentDTO stundentDTO);
+
+	void finished(Long studentId, Long lessonId);
 }

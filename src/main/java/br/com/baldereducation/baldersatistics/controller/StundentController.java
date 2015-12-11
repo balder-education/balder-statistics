@@ -85,6 +85,12 @@ final class StundentController {
 
         return updated;
     }
+    
+    @RequestMapping(method = RequestMethod.PUT, value = "/{studentId}/lesson/{lessonId}/complete")
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public void finished(@PathVariable("studentId") Long studentId, @PathVariable("lessonId") Long lessonId) {
+    	service.finished(studentId, lessonId);
+	}
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)

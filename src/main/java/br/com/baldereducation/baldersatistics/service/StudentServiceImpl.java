@@ -33,9 +33,10 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public StundentDTO create(StundentDTO studentDTO) {
 		LOGGER.info("Creating a new todo entry with information: {}", studentDTO);
-		
-		Student persisted = new Student.StudentBuilder(studentDTO.getName(), studentDTO.getEmail(), studentDTO.getCode()).build();
-		
+
+		Student persisted = new Student.StudentBuilder(studentDTO.getName(), studentDTO.getEmail(),
+				studentDTO.getCode()).build();
+
 		persisted = repository.save(persisted);
 		LOGGER.info("Created a new todo entry with information: {}", persisted);
 
@@ -98,7 +99,6 @@ public class StudentServiceImpl implements StudentService {
 		return result.orElseThrow(() -> new StudentNotFoundException(id));
 
 	}
-	
 
 	private StundentDTO convertToDTO(Student model) {
 		StundentDTO dto = new StundentDTO();
@@ -108,5 +108,10 @@ public class StudentServiceImpl implements StudentService {
 		dto.setName(model.getName());
 
 		return dto;
+	}
+
+	@Override
+	public void finished(Long studentId, Long lessonId) {
+		// TODO implementar metodo de progracao|
 	}
 }
